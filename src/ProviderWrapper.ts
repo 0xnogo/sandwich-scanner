@@ -22,8 +22,6 @@ export class ProviderWrapper {
       }
       return data;
     } catch (error) {
-      // console.log(`Main loop: ${retries+1}. Hitting: ${this.providers[retries+1].connection.url}`);
-      // console.log("Error: ", error);
       if (retries > this.providers.length - 1) {
         console.log(`Fast attempt rejected: ${retries}. Failing`);
         return Promise.reject(error);
