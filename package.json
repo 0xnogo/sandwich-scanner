@@ -1,6 +1,6 @@
 {
   "name": "sandwich-scanner",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Library to detect on-chain sandwich attacks",
   "cdn": "dist/index.umd.js",
   "main": "dist/index.js",
