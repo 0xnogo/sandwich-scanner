@@ -1,4 +1,6 @@
-# [Sandwich Docs]
+sandwich-scanner
+
+# sandwich-scanner
 
 ## Table of contents
 

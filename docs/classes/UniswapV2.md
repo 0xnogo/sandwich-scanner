@@ -1,4 +1,4 @@
-[[libraryNameWithSpacesAndUpperCases]](../README.md) / UniswapV2
+[sandwich-scanner](../README.md) / UniswapV2
 
 # Class: UniswapV2
 
@@ -39,7 +39,7 @@
 
 #### Defined in
 
-[dexes/UniswapV2Dex.ts:18](https://github.com/0xnogo/sandwich/blob/75b88ce/src/dexes/UniswapV2Dex.ts#L18)
+[dexes/UniswapV2Dex.ts:18](https://github.com/0xnogo/sandwich/blob/8cad922/src/dexes/UniswapV2Dex.ts#L18)
 
 ___
 
@@ -49,7 +49,7 @@ ___
 
 #### Defined in
 
-[dexes/UniswapV2Dex.ts:20](https://github.com/0xnogo/sandwich/blob/75b88ce/src/dexes/UniswapV2Dex.ts#L20)
+[dexes/UniswapV2Dex.ts:20](https://github.com/0xnogo/sandwich/blob/8cad922/src/dexes/UniswapV2Dex.ts#L20)
 
 ___
 
@@ -63,7 +63,7 @@ Dex.routers
 
 #### Defined in
 
-[dexes/UniswapV2Dex.ts:22](https://github.com/0xnogo/sandwich/blob/75b88ce/src/dexes/UniswapV2Dex.ts#L22)
+[dexes/UniswapV2Dex.ts:22](https://github.com/0xnogo/sandwich/blob/8cad922/src/dexes/UniswapV2Dex.ts#L22)
 
 ___
 
@@ -77,7 +77,7 @@ Dex.type
 
 #### Defined in
 
-[dexes/UniswapV2Dex.ts:17](https://github.com/0xnogo/sandwich/blob/75b88ce/src/dexes/UniswapV2Dex.ts#L17)
+[dexes/UniswapV2Dex.ts:17](https://github.com/0xnogo/sandwich/blob/8cad922/src/dexes/UniswapV2Dex.ts#L17)
 
 ## Methods
 
@@ -100,7 +100,7 @@ Dex.type
 
 #### Defined in
 
-[dexes/UniswapV2Dex.ts:54](https://github.com/0xnogo/sandwich/blob/75b88ce/src/dexes/UniswapV2Dex.ts#L54)
+[dexes/UniswapV2Dex.ts:54](https://github.com/0xnogo/sandwich/blob/8cad922/src/dexes/UniswapV2Dex.ts#L54)
 
 ___
 
@@ -124,7 +124,7 @@ Dex.filterDexSwap
 
 #### Defined in
 
-[dexes/UniswapV2Dex.ts:38](https://github.com/0xnogo/sandwich/blob/75b88ce/src/dexes/UniswapV2Dex.ts#L38)
+[dexes/UniswapV2Dex.ts:38](https://github.com/0xnogo/sandwich/blob/8cad922/src/dexes/UniswapV2Dex.ts#L38)
 
 ___
 
@@ -148,4 +148,4 @@ Dex.isFromDex
 
 #### Defined in
 
-[dexes/UniswapV2Dex.ts:28](https://github.com/0xnogo/sandwich/blob/75b88ce/src/dexes/UniswapV2Dex.ts#L28)
+[dexes/UniswapV2Dex.ts:28](https://github.com/0xnogo/sandwich/blob/8cad922/src/dexes/UniswapV2Dex.ts#L28)
