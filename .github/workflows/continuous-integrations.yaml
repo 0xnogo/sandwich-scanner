@@ -49,6 +49,12 @@ jobs:
     name: 'Publish the package to npm'
     runs-on: 'ubuntu-latest'
     steps:
+      - name: 'Checkout the repository'
+        uses: 'actions/checkout@v3'
+
+      - name: 'Setup Node.js and npm'
+        uses: './.github/actions/setup'
+
       - name: 'Execute the publish command'
         run: 'npm run publish'
         env:
