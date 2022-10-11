@@ -1,9 +1,10 @@
 # Sandwich-scanner
 
-[![Continuous Integrations](https://github.com/0xnogo/sandwich-scanner/actions/workflows/continuous-integrations.yaml/badge.svg?branch=main)](https://github.com/0xnogo/sandwich-scanner/actions/workflows/continuous-integrations.yaml)
+[![Continuous Integrations](https://github.com/0xnogo/sandwich-scanner/actions/workflows/continuous-integrations.yaml/badge.svg?branch=main)](https://github.com/0xnogo/sandwich-scanner/actions/workflows/continu§ous-integrations.yaml)
 [![License](https://badgen.net/github/license/0xnogo/sandwich-scanner)](./LICENSE)
-[![Package minified & gzipped size](https://badgen.net/bundlephobia/minzip/sandwich-scanner)](https://bundlephobia.com/package/sandwich-scanner)
-[![Package dependency count](https://badgen.net/bundlephobia/dependency-count/react)](https://bundlephobia.com/package/sandwich-scanner)
+[![Package dependency count](https://badgen.net/bundlephobia/dependency-count/sandwich-scanner)](https://npmjs.com/package/sandwich-scanner)
+[![Npm package version](https://badgen.net/npm/v/sandwich-scanner)](https://www.npmjs.com/package/sandwich-scanner)
+
 
 ## Installation
 
