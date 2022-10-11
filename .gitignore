@@ -28,3 +28,8 @@ pnpmfile.js
 # Log files.
 *.log
 *.log.*
+
+# Test files
+coverage
+
+/dist
