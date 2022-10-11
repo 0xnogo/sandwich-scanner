@@ -12,7 +12,7 @@
 
     // Type declaration settings.
     "declaration": true,
-    "declarationDir": "types/",
+    "declarationDir": "dist/",
     "declarationMap": true
   },
   "exclude": ["./src/**/*.test.ts", "./src/**/*.test.tsx"]

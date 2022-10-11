@@ -32,4 +32,5 @@ pnpmfile.js
 # Test files
 coverage
 
-/dist
+# Build files
+dist/

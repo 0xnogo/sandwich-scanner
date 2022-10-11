@@ -1,10 +1,10 @@
 {
-  "name": "[libraryName]",
-  "version": "0.0.0",
-  "description": "",
+  "name": "sandwich",
+  "version": "0.1.0",
+  "description": "Library to detect on-chain sandwich attacks",
   "cdn": "dist/index.umd.js",
   "main": "dist/index.js",
-  "types": "types/index.d.ts",
+  "types": "dist/index.d.ts",
   "unpkg": "dist/index.umd.js",
   "module": "dist/index.esm.js",
   "jsdelivr": "dist/index.umd.js",
@@ -22,6 +22,7 @@
   "devDependencies": {
     "@types/eslint": "^8.4.5",
     "@types/jest": "^28.1.6",
+    "@types/lodash": "^4.14.186",
     "@types/prettier": "^2.6.3",
     "@typescript-eslint/eslint-plugin": "^5.30.6",
     "@typescript-eslint/parser": "^5.30.6",
@@ -49,15 +50,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/[repositoryOwner]/[repositoryName].git"
+    "url": "git+https://github.com/0xnogo/sandwich.git"
   },
-  "keywords": [],
+  "keywords": ["mev", "sandwich", "attack", "ethereum"],
   "author": {
-    "name": "[authorFullName]"
+    "name": "[nogo]"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/[repositoryOwner]/[repositoryName]/issues"
+    "url": "https://github.com/0xnogo/sandwich/issues"
   },
-  "homepage": "https://github.com/[repositoryOwner]/[repositoryName]#readme"
+  "homepage": "https://github.com/0xnogo/sandwich#readme",
+  "dependencies": {
+    "axios": "^1.1.2",
+    "ethers": "^5.7.1",
+    "lodash": "^4.17.21"
+  }
 }

@@ -1,10 +1,5 @@
 {
   "compilerOptions": {
-    // React.js JSX settings.
-    "jsx": "react",
-    "jsxFactory": "React.createElement",
-    "jsxFragmentFactory": "React.Fragment",
-
     // Module settings.
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
@@ -30,7 +25,8 @@
     "lib": ["ES2020"],
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
+    "downlevelIteration": true,
     "types": ["jest"]
   },
-  "include": ["./src/**/*.ts", "./src/**/*.tsx"]
+  "include": ["src", "types"]
 }

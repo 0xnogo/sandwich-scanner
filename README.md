@@ -1,4 +1,4 @@
-# [libraryNameWithSpacesAndUpperCases]
+# [Sandiwch]
 
 [![Continuous Integrations](https://github.com/[repositoryOwner]/[repositoryName]/actions/workflows/continuous-integrations.yaml/badge.svg?branch=main)](https://github.com/[repositoryOwner]/[repositoryName]/actions/workflows/continuous-integrations.yaml)
 [![License](https://badgen.net/github/license/[repositoryOwner]/[repositoryName])](./LICENSE)
