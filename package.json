@@ -1,6 +1,6 @@
 {
   "name": "sandwich-scanner",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Library to detect on-chain sandwich attacks",
   "cdn": "dist/index.umd.js",
   "main": "dist/index.js",
@@ -20,6 +20,7 @@
     ]
   },
   "devDependencies": {
+    "@rollup/plugin-json": "^5.0.0",
     "@types/eslint": "^8.4.5",
     "@types/jest": "^28.1.6",
     "@types/lodash": "^4.14.186",
@@ -53,7 +54,12 @@
     "type": "git",
     "url": "git+https://github.com/0xnogo/sandwich-scanner.git"
   },
-  "keywords": ["mev", "sandwich", "attack", "ethereum"],
+  "keywords": [
+    "mev",
+    "sandwich",
+    "attack",
+    "ethereum"
+  ],
   "author": {
     "name": "0xnogo"
   },

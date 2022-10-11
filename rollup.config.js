@@ -2,6 +2,7 @@
 
 import { terser } from 'rollup-plugin-terser';
 import typescript2 from 'rollup-plugin-typescript2';
+import json from "@rollup/plugin-json";
 
 import pkg from './package.json';
 
@@ -68,6 +69,7 @@ const options = {
       useTsconfigDeclarationDir: true,
       tsconfig: './tsconfig.bundle.json',
     }),
+    json()
   ],
 };
 

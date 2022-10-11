@@ -1,7 +1,7 @@
 import type { ethers } from 'ethers';
 import { Interface } from 'ethers/lib/utils';
 
-import * as UniwapV2Abi from '../data/uniswapv2-pair-abi.json';
+import UniwapV2Abi from '../data/uniswapv2-pair-abi.json';
 import { UniswapV2 } from '../dexes/UniswapV2Dex';
 import type { IClassifier } from '../interfaces/Classifier';
 import type { Dex } from '../interfaces/Dex';
