@@ -1,6 +1,4 @@
-[libraryNameWithSpacesAndUpperCases]
-
-# [libraryNameWithSpacesAndUpperCases]
+# [Sandwich Docs]
 
 ## Table of contents
 
