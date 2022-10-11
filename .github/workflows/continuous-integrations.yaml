@@ -56,6 +56,6 @@ jobs:
         uses: './.github/actions/setup'
 
       - name: 'Execute the publish command'
-        run: 'npm run publish'
+        run: 'npm publish'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
