@@ -44,3 +44,12 @@ jobs:
 
       - name: 'Execute the build script'
         run: 'npm run build'
+  
+  publish:
+    name: 'Publish the package to npm'
+      runs-on: 'ubuntu-latest'
+      steps:
+        - name: 'Execute the publish command'
+          run: 'npm run publish'
+          env:
+            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
