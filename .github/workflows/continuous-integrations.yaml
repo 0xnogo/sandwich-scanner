@@ -55,6 +55,8 @@ jobs:
       - name: 'Setup Node.js and npm'
         uses: './.github/actions/setup'
 
+      - run: npm ci
+
       - name: 'Execute the publish command'
         run: 'npm publish'
         env:

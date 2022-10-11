@@ -9,6 +9,8 @@ runs:
         node-version: '16.x'
         cache: 'npm'
         cache-dependency-path: '**/package-lock.json'
+        registry-url: 'https://registry.npmjs.org'
+        scope: '@0xnogo'
 
     - name: 'Keep npm cache for future workflows'
       uses: 'actions/cache@v3'
