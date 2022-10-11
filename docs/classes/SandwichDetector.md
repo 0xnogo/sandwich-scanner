@@ -41,7 +41,7 @@
 
 #### Defined in
 
-[SandwichDetector.ts:24](https://github.com/0xnogo/sandwich/blob/8cad922/src/SandwichDetector.ts#L24)
+[SandwichDetector.ts:24](https://github.com/0xnogo/sandwich/blob/288b6da/src/SandwichDetector.ts#L24)
 
 ## Properties
 
@@ -51,7 +51,7 @@
 
 #### Defined in
 
-[SandwichDetector.ts:20](https://github.com/0xnogo/sandwich/blob/8cad922/src/SandwichDetector.ts#L20)
+[SandwichDetector.ts:20](https://github.com/0xnogo/sandwich/blob/288b6da/src/SandwichDetector.ts#L20)
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 #### Defined in
 
-[SandwichDetector.ts:22](https://github.com/0xnogo/sandwich/blob/8cad922/src/SandwichDetector.ts#L22)
+[SandwichDetector.ts:22](https://github.com/0xnogo/sandwich/blob/288b6da/src/SandwichDetector.ts#L22)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[SandwichDetector.ts:21](https://github.com/0xnogo/sandwich/blob/8cad922/src/SandwichDetector.ts#L21)
+[SandwichDetector.ts:21](https://github.com/0xnogo/sandwich/blob/288b6da/src/SandwichDetector.ts#L21)
 
 ## Methods
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[SandwichDetector.ts:118](https://github.com/0xnogo/sandwich/blob/8cad922/src/SandwichDetector.ts#L118)
+[SandwichDetector.ts:118](https://github.com/0xnogo/sandwich/blob/288b6da/src/SandwichDetector.ts#L118)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[SandwichDetector.ts:54](https://github.com/0xnogo/sandwich/blob/8cad922/src/SandwichDetector.ts#L54)
+[SandwichDetector.ts:54](https://github.com/0xnogo/sandwich/blob/288b6da/src/SandwichDetector.ts#L54)
 
 ___
 
@@ -141,7 +141,7 @@ ___
 
 #### Defined in
 
-[SandwichDetector.ts:34](https://github.com/0xnogo/sandwich/blob/8cad922/src/SandwichDetector.ts#L34)
+[SandwichDetector.ts:34](https://github.com/0xnogo/sandwich/blob/288b6da/src/SandwichDetector.ts#L34)
 
 ___
 
@@ -163,4 +163,4 @@ ___
 
 #### Defined in
 
-[SandwichDetector.ts:86](https://github.com/0xnogo/sandwich/blob/8cad922/src/SandwichDetector.ts#L86)
+[SandwichDetector.ts:86](https://github.com/0xnogo/sandwich/blob/288b6da/src/SandwichDetector.ts#L86)

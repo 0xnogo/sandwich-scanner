@@ -32,7 +32,7 @@
 
 #### Defined in
 
-[SandwichDetector.ts:16](https://github.com/0xnogo/sandwich/blob/8cad922/src/SandwichDetector.ts#L16)
+[SandwichDetector.ts:16](https://github.com/0xnogo/sandwich/blob/288b6da/src/SandwichDetector.ts#L16)
 
 ___
 
@@ -53,4 +53,4 @@ ___
 
 #### Defined in
 
-[SandwichDetector.ts:14](https://github.com/0xnogo/sandwich/blob/8cad922/src/SandwichDetector.ts#L14)
+[SandwichDetector.ts:14](https://github.com/0xnogo/sandwich/blob/288b6da/src/SandwichDetector.ts#L14)
