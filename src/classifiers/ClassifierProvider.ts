@@ -15,6 +15,6 @@ export class ClassifierProvider {
   }
 
   public getClassifierForDex(dexType: DexType): IClassifier | undefined {
-    return this.classifiers.find(c => c.dex.type === dexType);
+    return this.classifiers.find((c) => c.dex.type === dexType);
   }
 }

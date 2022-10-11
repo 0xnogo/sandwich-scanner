@@ -17,31 +17,33 @@ export class Fetcher {
 
   public async getTransactionsDetailsWithOffset(
     swaps: Swap[],
-    offset: number
+    offset: number,
   ): Promise<Map<Swap, TransactionDetails[]>> {
     const map: Map<Swap, TransactionDetails[]> = new Map();
     const data: {
       swap: Swap;
       otherTxs: TransactionDetails[];
     }[] = await Promise.all(
-      swaps.map(async swap => {
+      swaps.map(async (swap) => {
         let counter = 1;
         const txDetails: TransactionDetails[] = [];
         while (counter <= offset) {
           if (swap.txPosition - counter >= 0) {
-            const txDetailDown = await this.getTransactionDetailsByBlockNumberAndIndex(
-              swap.blockNumber,
-              swap.txPosition - counter
-            );
+            const txDetailDown =
+              await this.getTransactionDetailsByBlockNumberAndIndex(
+                swap.blockNumber,
+                swap.txPosition - counter,
+              );
             if (txDetailDown !== undefined) {
               txDetails.push(txDetailDown);
             }
           }
 
-          const txDetailsUp = await this.getTransactionDetailsByBlockNumberAndIndex(
-            swap.blockNumber,
-            swap.txPosition + counter
-          );
+          const txDetailsUp =
+            await this.getTransactionDetailsByBlockNumberAndIndex(
+              swap.blockNumber,
+              swap.txPosition + counter,
+            );
           if (txDetailsUp !== undefined) {
             txDetails.push(txDetailsUp);
           }
@@ -49,24 +51,24 @@ export class Fetcher {
           counter++;
         }
         return { swap, otherTxs: txDetails };
-      })
+      }),
     );
-    data.forEach(d => map.set(d.swap, d.otherTxs));
+    data.forEach((d) => map.set(d.swap, d.otherTxs));
 
     return map;
   }
 
   public async getTransactionDetailsByBlockNumberAndIndex(
     blockNumber: number,
-    transactionIndex: number
+    transactionIndex: number,
   ): Promise<TransactionDetails | undefined> {
     try {
       const txHash = (
-        await this.provider.callProviderWithRetries(provider =>
+        await this.provider.callProviderWithRetries((provider) =>
           provider.send('eth_getTransactionByBlockNumberAndIndex', [
             ethers.utils.hexValue(blockNumber),
             ethers.utils.hexValue(transactionIndex),
-          ])
+          ]),
         )
       ).hash;
       const txReceipt = await this.getTransactionDetails(txHash);
@@ -77,11 +79,11 @@ export class Fetcher {
   }
 
   public async getTransactionDetails(
-    txHash: string
+    txHash: string,
   ): Promise<TransactionDetails | undefined> {
     try {
       const txReceipt = await this.provider.callProviderWithRetriesAndWait(
-        provider => provider.getTransactionReceipt(txHash)
+        (provider) => provider.getTransactionReceipt(txHash),
       );
       return {
         hash: txHash,
@@ -96,30 +98,30 @@ export class Fetcher {
   }
 
   public async getTransactionDetailsFromAddress(
-    address: string
+    address: string,
   ): Promise<TransactionDetails[]> {
     const txHashes = await this.getAllTxFromAddress(address);
     const txDetails = await Promise.all(
-      txHashes.map(txHash => this.getTransactionDetails(txHash))
+      txHashes.map((txHash) => this.getTransactionDetails(txHash)),
     );
-    return txDetails.filter(tx => tx !== undefined) as TransactionDetails[];
+    return txDetails.filter((tx) => tx !== undefined) as TransactionDetails[];
   }
 
   public async getAllTransactionDetailsFromBlock(
-    blockNo: number
+    blockNo: number,
   ): Promise<TransactionDetails[]> {
     const txHashes = await this.getAllTxFromBlock(blockNo);
     const txDetails = await Promise.all(
-      txHashes.map(txHash => this.getTransactionDetails(txHash))
+      txHashes.map((txHash) => this.getTransactionDetails(txHash)),
     );
-    return txDetails.filter(tx => tx !== undefined) as TransactionDetails[];
+    return txDetails.filter((tx) => tx !== undefined) as TransactionDetails[];
   }
 
   public async getAllTxFromAddress(address: string): Promise<string[]> {
     const urlGetAllTxFromAddress = `https://api.covalenthq.com/v1/1/address/${address}/transactions_v2/`;
-    let params: any = {
-      key: this.covalentApiKey,
-      format: 'JSON',
+    const params: any = {
+      'key': this.covalentApiKey,
+      'format': 'JSON',
       'quote-currency': 'USD',
       'block-signed-at-asc': false,
       'no-logs': false,
@@ -137,22 +139,22 @@ export class Fetcher {
       }
     } catch (error) {
       throw new Error(
-        `Error fetching tx from address ${address} with error: ${error}`
+        `Error fetching tx from address ${address} with error: ${error}`,
       );
     }
 
-    return _.flatten(txFromAddress).map(tx => tx.tx_hash);
+    return _.flatten(txFromAddress).map((tx) => tx.tx_hash);
   }
 
   private async getAllTxFromBlock(blockNo: number): Promise<string[]> {
     try {
       const block = await this.provider.callProviderWithRetriesAndWait(
-        provider => provider.getBlock(blockNo)
+        (provider) => provider.getBlock(blockNo),
       );
       return block.transactions;
     } catch (error) {
       throw new Error(
-        `Error fetching tx from block ${blockNo} with error: ${error}`
+        `Error fetching tx from block ${blockNo} with error: ${error}`,
       );
     }
   }

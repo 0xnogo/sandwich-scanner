@@ -40,12 +40,12 @@ export class UniswapV2 implements Dex {
     let swapsFromDex: Swap[] = [];
 
     swapsFromDex = flattenSwaps.filter(
-      swap =>
+      (swap) =>
         this.computePairAddress({
           factoryAddress: this.factoryAddresss,
           tokenA: swap.tokenInAddress,
           tokenB: swap.tokenOutAddress,
-        }) === swap.contractAddress
+        }) === swap.contractAddress,
     );
 
     return swapsFromDex;
@@ -68,9 +68,9 @@ export class UniswapV2 implements Dex {
       factoryAddress,
       solidityKeccak256(
         ['bytes'],
-        [solidityPack(['address', 'address'], [token0, token1])]
+        [solidityPack(['address', 'address'], [token0, token1])],
       ),
-      this.initCodeHash
+      this.initCodeHash,
     );
   }
 }

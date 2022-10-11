@@ -14,7 +14,7 @@ export class Detector {
       const backSwaps = swaps.slice(i + 1, swaps.length);
 
       sandwiches.push(
-        ...this.sandwichDetection(victimSwap!, frontSwaps, backSwaps, dex)
+        ...this.sandwichDetection(victimSwap!, frontSwaps, backSwaps, dex),
       );
     }
     return sandwiches;
@@ -23,10 +23,10 @@ export class Detector {
   public sandwichDetectorOnTargetSwap(
     victimSwap: Swap,
     otherSwaps: Swap[],
-    dex: Dex
+    dex: Dex,
   ): Sandwich[] {
     const index = otherSwaps.findIndex(
-      s => s.txPosition > victimSwap.txPosition
+      (s) => s.txPosition > victimSwap.txPosition,
     );
     const frontSwaps = otherSwaps.slice(0, index);
     const backSwaps = otherSwaps.slice(index, otherSwaps.length);
@@ -38,21 +38,21 @@ export class Detector {
     victimSwap: Swap,
     frontSwaps: Swap[],
     backSwaps: Swap[],
-    dex: Dex
+    dex: Dex,
   ): Sandwich[] {
     const sandwiches: Sandwich[] = [];
 
     const frontSwap = frontSwaps.find(
-      s =>
+      (s) =>
         s.tokenInAddress === victimSwap.tokenInAddress &&
         s.tokenOutAddress === victimSwap.tokenOutAddress &&
-        _.indexOf(dex.routers, s.toAddress.toLowerCase()) === -1
+        _.indexOf(dex.routers, s.toAddress.toLowerCase()) === -1,
     );
     const backSwap = backSwaps.find(
-      s =>
+      (s) =>
         s.tokenInAddress === victimSwap.tokenOutAddress &&
         s.tokenOutAddress === victimSwap.tokenInAddress &&
-        frontSwap?.toAddress === s.fromAddress
+        frontSwap?.toAddress === s.fromAddress,
     );
 
     if (frontSwap && backSwap) {

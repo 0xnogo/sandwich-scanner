@@ -1,4 +1,4 @@
-import { Swap } from './Swap';
+import type { Swap } from './Swap';
 
 export type DexType = 'UniswapV2' | 'UniswapV3';
 

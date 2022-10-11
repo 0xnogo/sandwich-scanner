@@ -24,7 +24,7 @@ export class SandwichDetector implements ISandwichDetector {
   constructor(
     provider: ethers.providers.JsonRpcProvider,
     covalentApiKey: string,
-    backupProviders?: ethers.providers.JsonRpcProvider[]
+    backupProviders?: ethers.providers.JsonRpcProvider[],
   ) {
     const providerWrapper = new ProviderWrapper(provider, backupProviders);
     this.classifierProvider = new ClassifierProvider(providerWrapper);
@@ -33,76 +33,71 @@ export class SandwichDetector implements ISandwichDetector {
 
   public async getSandwichesForBlock(
     blockNo: number,
-    dexType: DexType
+    dexType: DexType,
   ): Promise<Sandwich[]> {
     const classifier = this.classifierProvider.getClassifierForDex(dexType);
     if (!classifier) {
       throw new Error('Classifier not found');
     }
-    const transactionDetailsFromBlock = await this.fetcher.getAllTransactionDetailsFromBlock(
-      blockNo
-    );
+    const transactionDetailsFromBlock =
+      await this.fetcher.getAllTransactionDetailsFromBlock(blockNo);
     const swaps = await classifier.getSwapsFromAllTx(
-      transactionDetailsFromBlock
+      transactionDetailsFromBlock,
     );
     const sandwiches = this.detector.sandwichDetectorOnList(
       swaps,
-      classifier.dex
+      classifier.dex,
     );
     return sandwiches;
   }
 
   public async getSandwichesForAddress(
     address: string,
-    dex: DexType
+    dex: DexType,
   ): Promise<Sandwich[]> {
     const classifier = this.classifierProvider.getClassifierForDex(dex);
     if (!classifier) {
       throw new Error('Classifier not found');
     }
 
-    const txDetailsFromAddress = await this.fetcher.getTransactionDetailsFromAddress(
-      address
-    );
+    const txDetailsFromAddress =
+      await this.fetcher.getTransactionDetailsFromAddress(address);
     const swaps = await classifier.getSwapsFromAllTx(txDetailsFromAddress);
     const blocksWithSwapsFromAddress = this.getBlocksFromSwaps(swaps);
     console.log(
       `Found ${
         swaps.length
       } 🥪 from address ${address} in 🧱 ${blocksWithSwapsFromAddress.join(
-        ', '
-      )}`
+        ', ',
+      )}`,
     );
 
     const sandwiches = await Promise.all(
-      blocksWithSwapsFromAddress.map(blockNo =>
-        this.getSandwichesForBlock(blockNo, dex)
-      )
+      blocksWithSwapsFromAddress.map((blockNo) =>
+        this.getSandwichesForBlock(blockNo, dex),
+      ),
     );
 
     return _.flatten(sandwiches).filter(
-      sandwich => sandwich.victimSwap.toAddress === address
+      (sandwich) => sandwich.victimSwap.toAddress === address,
     );
   }
 
   public async getSwandwichesforAddressWithOffset(
     address: string,
     offset: number,
-    dex: DexType
+    dex: DexType,
   ): Promise<any> {
     const classifier = this.classifierProvider.getClassifierForDex(dex);
     if (!classifier) {
       throw new Error('Classifier not found');
     }
 
-    const txDetailsFromAddress = await this.fetcher.getTransactionDetailsFromAddress(
-      address
-    );
+    const txDetailsFromAddress =
+      await this.fetcher.getTransactionDetailsFromAddress(address);
     const swaps = await classifier.getSwapsFromAllTx(txDetailsFromAddress);
-    const swapMap: Map<
-      Swap,
-      TransactionDetails[]
-    > = await this.fetcher.getTransactionsDetailsWithOffset(swaps, offset);
+    const swapMap: Map<Swap, TransactionDetails[]> =
+      await this.fetcher.getTransactionsDetailsWithOffset(swaps, offset);
     const sandwiches = [];
     for (const [victimSwap, txDetails] of swapMap) {
       const otherSwaps = await classifier.getSwapsFromAllTx(txDetails);
@@ -111,8 +106,8 @@ export class SandwichDetector implements ISandwichDetector {
           ...this.detector.sandwichDetectorOnTargetSwap(
             victimSwap,
             otherSwaps,
-            classifier.dex
-          )
+            classifier.dex,
+          ),
         );
       }
     }
@@ -121,6 +116,6 @@ export class SandwichDetector implements ISandwichDetector {
   }
 
   private getBlocksFromSwaps(swaps: Swap[]): number[] {
-    return _.uniq(swaps.map(swap => swap.blockNumber));
+    return _.uniq(swaps.map((swap) => swap.blockNumber));
   }
 }

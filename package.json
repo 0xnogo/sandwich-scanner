@@ -43,6 +43,7 @@
   "scripts": {
     "doc": "typedoc src/index.ts",
     "test": "jest",
+    "coverage": "jest --coverage",
     "lint": "eslint \"*/**/*.{ts,js,json}\"",
     "lint:fix": "eslint \"*/**/*.{ts,js,json}\" --fix",
     "build": "rollup --config ./rollup.config.js",

@@ -1,6 +1,6 @@
-import { Dex } from './Dex';
-import { Swap } from './Swap';
-import { TransactionDetails } from './TransactionDetails';
+import type { Dex } from './Dex';
+import type { Swap } from './Swap';
+import type { TransactionDetails } from './TransactionDetails';
 
 export interface IClassifier {
   dex: Dex;

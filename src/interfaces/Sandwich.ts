@@ -1,4 +1,4 @@
-import { Swap } from './Swap';
+import type { Swap } from './Swap';
 
 export interface Sandwich {
   frontSwap: Swap;

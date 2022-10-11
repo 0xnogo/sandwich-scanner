@@ -6,14 +6,14 @@ export class ProviderWrapper {
 
   constructor(
     provider: ethers.providers.JsonRpcProvider,
-    backupProviders?: ethers.providers.JsonRpcProvider[]
+    backupProviders?: ethers.providers.JsonRpcProvider[],
   ) {
     this.providers = [provider, ...(backupProviders ? backupProviders : [])];
   }
 
   public async callProviderWithRetries(
     fn: (provider: ethers.providers.JsonRpcProvider) => Promise<any>,
-    retries: number = 0
+    retries = 0,
   ): Promise<any> {
     try {
       const data = await fn(this.providers[retries]!);
@@ -37,13 +37,13 @@ export class ProviderWrapper {
     params: any[],
     address: string,
     _interface: Interface,
-    retries: number = 0
+    retries = 0,
   ): Promise<any> {
     try {
       const contractPair = new ethers.Contract(
         address,
         _interface,
-        this.providers[retries]
+        this.providers[retries],
       );
       const data = await contractPair[method](...params);
       return data;
@@ -56,14 +56,14 @@ export class ProviderWrapper {
         params,
         address,
         _interface,
-        retries + 1
+        retries + 1,
       );
     }
   }
 
   public async callProviderWithRetriesAndWait(
     fn: (provider: ethers.providers.JsonRpcProvider) => Promise<any>,
-    retries: number = 0
+    retries = 0,
   ): Promise<any> {
     try {
       const data = await fn(this.providers[retries]!);

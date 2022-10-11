@@ -1,15 +1,16 @@
-import { BigNumber } from "ethers";
-import { Detector } from "../Detector";
-import { UniswapV2 } from "../dexes";
-import type { Dex } from "../interfaces/Dex";
-import type { Sandwich } from "../interfaces/Sandwich";
-import type { Swap } from "../interfaces/Swap";
+import { BigNumber } from 'ethers';
+import { Detector } from '../Detector';
+import { UniswapV2 } from '../dexes';
+import type { Dex } from '../interfaces/Dex';
+import type { Sandwich } from '../interfaces/Sandwich';
+import type { Swap } from '../interfaces/Swap';
 
 describe('Detector', () => {
   let detector: Detector;
-  let swapsWithSandwich: Swap[] = [
+  const swapsWithSandwich: Swap[] = [
     {
-      txHash: '0x4dd182582bc7eedf0fb41a62da18322959e75483f6fde25cfddf7d06b0bb2fbe',
+      txHash:
+        '0x4dd182582bc7eedf0fb41a62da18322959e75483f6fde25cfddf7d06b0bb2fbe',
       txPosition: 71,
       blockNumber: 11698481,
       contractAddress: '0xD65E975c7D0d5871EfF8b079120E43C9F377aDa1',
@@ -21,7 +22,8 @@ describe('Detector', () => {
       amountOut: BigNumber.from('1000000000000000000'),
     },
     {
-      txHash: '0xde4349e4eaf8dcebd0b9b6ee4e10781ce43c09039b8a6bedd7bfdea5620ef28c',
+      txHash:
+        '0xde4349e4eaf8dcebd0b9b6ee4e10781ce43c09039b8a6bedd7bfdea5620ef28c',
       txPosition: 78,
       blockNumber: 11698481,
       contractAddress: '0xD65E975c7D0d5871EfF8b079120E43C9F377aDa1',
@@ -33,7 +35,8 @@ describe('Detector', () => {
       amountOut: BigNumber.from('1000000000000000000'),
     },
     {
-      txHash: '0x75eea569f1e5044f2e0beb10f60204bb1381965bf18fbba01b6c400cf70b2b4b',
+      txHash:
+        '0x75eea569f1e5044f2e0beb10f60204bb1381965bf18fbba01b6c400cf70b2b4b',
       txPosition: 79,
       blockNumber: 11698481,
       contractAddress: '0xD65E975c7D0d5871EfF8b079120E43C9F377aDa1',
@@ -43,11 +46,12 @@ describe('Detector', () => {
       tokenOutAddress: '0xAE1eaAE3F627AAca434127644371b67B18444051',
       amountIn: BigNumber.from('1000000000000000000'),
       amountOut: BigNumber.from('1000000000000000000'),
-    }
+    },
   ];
-  let swapsWithoutSandwich: Swap[] = [
+  const swapsWithoutSandwich: Swap[] = [
     {
-      txHash: '0x4dd182582bc7eedf0fb41a62da18322959e75483f6fde25cfddf7d06b0bb2fbe',
+      txHash:
+        '0x4dd182582bc7eedf0fb41a62da18322959e75483f6fde25cfddf7d06b0bb2fbe',
       txPosition: 71,
       blockNumber: 11698481,
       contractAddress: '0xD65E975c7D0d5871EfF8b079120E43C9F377aDa1',
@@ -59,7 +63,8 @@ describe('Detector', () => {
       amountOut: BigNumber.from('1000000000000000000'),
     },
     {
-      txHash: '0xde4349e4eaf8dcebd0b9b6ee4e10781ce43c09039b8a6bedd7bfdea5620ef28c',
+      txHash:
+        '0xde4349e4eaf8dcebd0b9b6ee4e10781ce43c09039b8a6bedd7bfdea5620ef28c',
       txPosition: 78,
       blockNumber: 11698481,
       contractAddress: '0xD65E975c7D0d5871EfF8b079120E43C9F377aDa1',
@@ -71,7 +76,8 @@ describe('Detector', () => {
       amountOut: BigNumber.from('1000000000000000000'),
     },
     {
-      txHash: '0x75eea569f1e5044f2e0beb10f60204bb1381965bf18fbba01b6c400cf70b2b4b',
+      txHash:
+        '0x75eea569f1e5044f2e0beb10f60204bb1381965bf18fbba01b6c400cf70b2b4b',
       txPosition: 79,
       blockNumber: 11698481,
       contractAddress: '0xD65E975c7D0d5871EfF8b079120E43C9F377aDa1',
@@ -81,23 +87,26 @@ describe('Detector', () => {
       tokenOutAddress: '0xAE1eaAE3F627AAca434127644371b67B18444051',
       amountIn: BigNumber.from('1000000000000000000'),
       amountOut: BigNumber.from('1000000000000000000'),
-    }
+    },
   ];
 
   const sandwichExpected: Sandwich = {
     frontSwap: swapsWithSandwich[0]!,
     victimSwap: swapsWithSandwich[1]!,
-    backSwap: swapsWithSandwich[2]!
-  }
+    backSwap: swapsWithSandwich[2]!,
+  };
 
-  const dummyDex: Dex = new UniswapV2()
+  const dummyDex: Dex = new UniswapV2();
   beforeEach(() => {
     detector = new Detector();
   });
 
   it('should detect sandwiches on swap list', () => {
     // WHEN
-    const detectedSandwich = detector.sandwichDetectorOnList(swapsWithSandwich, dummyDex);
+    const detectedSandwich = detector.sandwichDetectorOnList(
+      swapsWithSandwich,
+      dummyDex,
+    );
 
     // THEN
     expect(detectedSandwich).toContainEqual(sandwichExpected);
@@ -105,7 +114,10 @@ describe('Detector', () => {
 
   it('should not detect sandwiches on swap list', () => {
     // WHEN
-    const detectedSandwich = detector.sandwichDetectorOnList(swapsWithoutSandwich, dummyDex);
+    const detectedSandwich = detector.sandwichDetectorOnList(
+      swapsWithoutSandwich,
+      dummyDex,
+    );
 
     // THEN
     expect(detectedSandwich).toHaveLength(0);
@@ -114,22 +126,24 @@ describe('Detector', () => {
   it('it should detect sandwiches on target swap', () => {
     // WHEN
     const detectedSandwich = detector.sandwichDetectorOnTargetSwap(
-      swapsWithSandwich[1]!, 
+      swapsWithSandwich[1]!,
       [swapsWithSandwich[0]!, swapsWithSandwich[2]!],
-      dummyDex);
+      dummyDex,
+    );
 
     // THEN
     expect(detectedSandwich).toContainEqual(sandwichExpected);
-  })
+  });
 
   it('it should not detect sandwiches on target swap', () => {
     // WHEN
     const detectedSandwich = detector.sandwichDetectorOnTargetSwap(
-      swapsWithoutSandwich[1]!, 
+      swapsWithoutSandwich[1]!,
       [swapsWithoutSandwich[0]!, swapsWithoutSandwich[2]!],
-      dummyDex);
+      dummyDex,
+    );
 
     // THEN
     expect(detectedSandwich).toHaveLength(0);
-  })
+  });
 });
